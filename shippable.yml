@@ -3,7 +3,7 @@ language: go
 go:
   - 1.2
   - tip
-  - release
+  #- release
 
 env:
   - CI_REPORT=shippable/testresults/junit.xml
