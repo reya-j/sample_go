@@ -5,8 +5,8 @@ go:
 
 env:
   - CI_REPORT=shippable/testresults/junit.xml
-
-before_install:
+  
+install:
   - go get github.com/t-yuki/gocover-cobertura
   - go get github.com/onsi/gomega
   - go get github.com/onsi/ginkgo
