@@ -10,7 +10,7 @@ var _ = Describe("Sample", func() {
 		Context("of the number 4", func() {
 			It("should result 2", func() {
 				Setup()
-				Expect(GetResult()).To(Equal(12.0))
+				Expect(GetResult()).To(Equal(2.0))
 			})
 		})
 	})
