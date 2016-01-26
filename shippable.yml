@@ -7,20 +7,23 @@ go:
 env:
   - CI_REPORT=shippable/testresults/junit.xml
 
-before_install:
-  - export GOPATH=$SHIPPABLE_GOPATH
-  - source $HOME/.gvm/scripts/gvm
-  - gvm install go$SHIPPABLE_GO_VERSION
-  - gvm use go$SHIPPABLE_GO_VERSION
+install:
+  - go get -v gopkg.in/yaml.v1
   - go get github.com/t-yuki/gocover-cobertura
   - go get github.com/onsi/gomega
   - go get github.com/onsi/ginkgo
-  - go get code.google.com/p/go.tools/cmd/cover
+  - go get golang.org/x/tools/cmd/cover
+  - mkdir -p $GOPATH/src/github.com/Shippable
+  - ln -sfn $PWD $GOPATH/src/github.com/Shippable/sample_go
+  - shippable_retry 'if [ $i -eq 3 ]; then echo "done"; else foobar$i; fi'
+
+#archive: true
 
 # Make folders for the reports
 before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
+  - echo $foo1
 
 script:
   - go test -coverprofile=coverage.txt -covermode count ./
