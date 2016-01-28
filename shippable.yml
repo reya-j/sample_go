@@ -1,5 +1,7 @@
 language: go
 
+build_image: drydock/u12golall
+
 go:
   - 1.2
 
