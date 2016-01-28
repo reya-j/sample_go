@@ -1,6 +1,6 @@
 language: go
 
-build_image: drydock/u12golall:tip
+build_image: drydock/u14golall:tip
 
 go:
   - 1.2
